@@ -1,12 +1,32 @@
-<!-- <form action="" (ngSubmit)="login()" #formData="ngForm">
+<!-- (ngSubmit)="login()" #formData="ngForm" -->
+
+
+
+
+<div class="loginPage">
+    <button type="button">Zaloguj</button>
+    <button type="button">Zarejestruj</button>
+
+<form action="" >
     <div>
         <label for="e-mail">E-mail</label>
         <input ngModel type="email" name="email" required>
         
         <label for="password">Password</label>
         <input ngModel type="password" name="password" required>
-
-        <button type="submit" [disabled]="formData.invalid">Zaloguj</button>
-        <button type="button">Zarejestruj</button>
+        <!-- [disabled]="formData.invalid" -->
+        <button type="submit" >Zaloguj</button>
     </div>
-</form> -->
+</form>
+
+<form action="">
+    <label for="nick">Nick</label>
+    <input type="text" name="nick" required>
+    <label for="email">E-mail</label>
+    <input type="email" name="email" required>
+    <label for="email">Password</label>
+    <input type="password" name="password" required>
+    <button type="submit" >Zarejestruj</button>
+</form>
+
+</div>
