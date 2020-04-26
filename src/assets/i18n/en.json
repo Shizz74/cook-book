@@ -1,0 +1,12 @@
+{
+    "loginPage":{
+        "login": "Log In",
+        "register": "Sign In",
+        "logIn": "Login",
+        "signin": "Signin",
+        "email": "E-mail",
+        "password": "Password",
+        "nick": "Nick"
+
+    }
+}

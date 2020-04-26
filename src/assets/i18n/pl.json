@@ -1,0 +1,12 @@
+{
+    "loginPage":{
+        "login": "Zaloguj się",
+        "register": "Zarejestruj się",
+        "logIn": "Zaloguj",
+        "submit": "Zarejestruj",
+        "email": "E-mail",
+        "password": "Hasło",
+        "nick": "Pseudonim"
+
+    }
+}

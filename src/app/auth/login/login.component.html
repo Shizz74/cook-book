@@ -4,7 +4,7 @@
 
 
 <div class="loginPage">
-    <button type="button">Zaloguj</button>
+    <button type="button">{{ 'loginPage.login' | translate }}</button>
     <button type="button">Zarejestruj</button>
 
 <form action="" >
@@ -28,5 +28,11 @@
     <input type="password" name="password" required>
     <button type="submit" >Zarejestruj</button>
 </form>
+
+
+<div>
+    <button (click)="useLanguage('en')">English</button>
+    <button (click)="useLanguage('pl')">Polski</button>
+  </div>
 
 </div>
