@@ -9,6 +9,12 @@ import { MenuComponent } from './menu/menu.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth/auth.service';
+import { FormsModule }   from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 
 
 
@@ -22,6 +28,9 @@ export function httpTranslateLoader(http: HttpClient) {
     MenuComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -33,7 +42,7 @@ export function httpTranslateLoader(http: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

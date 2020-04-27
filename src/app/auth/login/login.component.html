@@ -1,38 +1,39 @@
-<!-- (ngSubmit)="login()" #formData="ngForm" -->
 
 
 
 
-<div class="loginPage">
+
+<div class="forms">
     <button type="button">{{ 'loginPage.login' | translate }}</button>
-    <button type="button">Zarejestruj</button>
+    <button type="button">{{ 'loginPage.register' | translate }}</button>
 
-<form action="" >
+    <form action="" (ngSubmit)="login(formData)" #formData="ngForm">
+        <div>
+            <label for="e-mail">{{ 'loginPage.email' | translate }}</label>
+            <input ngModel type="email" name="email" required>
+
+            <label for="password">{{ 'loginPage.password' | translate }}</label>
+            <input ngModel type="password" name="password" required>
+            
+            <button type="submit" [disabled]="formData.invalid" >{{ 'loginPage.logIn' | translate }}</button>
+        </div>
+    </form>
+
+    <form action="" (ngSubmit)="signup(formData)" #formData="ngForm">
+        <label for="nick">{{ 'loginPage.nick' | translate }}</label>
+        <input type="text" name="nick" required>
+        <label for="email">{{ 'loginPage.email' | translate }}</label>
+        <input type="email" name="email" required>
+        <label for="email">{{ 'loginPage.password' | translate }}</label>
+        <input type="password" name="password" required>
+        <button type="submit" >{{ 'loginPage.signin' | translate }}</button>
+    </form>
+
+
     <div>
-        <label for="e-mail">E-mail</label>
-        <input ngModel type="email" name="email" required>
-        
-        <label for="password">Password</label>
-        <input ngModel type="password" name="password" required>
-        <!-- [disabled]="formData.invalid" -->
-        <button type="submit" >Zaloguj</button>
+        <button (click)="useLanguage('pl')">PL</button>
+        <span> / </span>
+        <button (click)="useLanguage('en')">EN</button>
     </div>
-</form>
-
-<form action="">
-    <label for="nick">Nick</label>
-    <input type="text" name="nick" required>
-    <label for="email">E-mail</label>
-    <input type="email" name="email" required>
-    <label for="email">Password</label>
-    <input type="password" name="password" required>
-    <button type="submit" >Zarejestruj</button>
-</form>
-
-
-<div>
-    <button (click)="useLanguage('en')">English</button>
-    <button (click)="useLanguage('pl')">Polski</button>
-  </div>
 
 </div>
