@@ -12,8 +12,10 @@ export class LoginComponent implements OnInit {
 
   title = 'angular-9-i18n';
   langs = ['en', 'pl'];
+  email: string;
+  password: string;
 
-  constructor(private translateService: TranslateService, private authService: AuthService) { }
+  constructor(private translateService: TranslateService, public authService: AuthService) { }
 
   ngOnInit(): void {
     let browserlang = this.translateService.getBrowserLang();
@@ -25,12 +27,30 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login(formData: NgForm){
-    this.authService.login(formData.value.email, formData.value.password);
+  // login(formDataLogin: NgForm){
+  //   this.authService.login(formDataLogin.value.email, formDataLogin.value.password);
+  // }
+
+  // signup(formDataSignup: NgForm){
+  //   this.authService.signup(formDataSignup.value.email, formDataSignup.value.password);
+  // }
+
+  // logout(){
+  //   this.authService.logout();
+  // }
+
+  signup() {
+    this.authService.signup(this.email, this.password);
+    this.email = this.password = '';
   }
 
-  signup(formData: NgForm){
-    this.authService.signup(formData.value.nick, formData.value.email, formData.value.password);
+  login() {
+    this.authService.login(this.email, this.password);
+    this.email = this.password = '';    
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
   public useLanguage(lang: string): void {

@@ -1,4 +1,4 @@
-
+<!-- 
 
 
 
@@ -7,26 +7,26 @@
     <button type="button">{{ 'loginPage.login' | translate }}</button>
     <button type="button">{{ 'loginPage.register' | translate }}</button>
 
-    <form action="" (ngSubmit)="login(formData)" #formData="ngForm">
+    <form action="" (ngSubmit)="login(formDataLogin)" #formDataLogin="ngForm">
         <div>
             <label for="e-mail">{{ 'loginPage.email' | translate }}</label>
-            <input ngModel type="email" name="email" required>
+            <input ngModel type="email" name="e-mail" required>
 
             <label for="password">{{ 'loginPage.password' | translate }}</label>
             <input ngModel type="password" name="password" required>
             
-            <button type="submit" [disabled]="formData.invalid" >{{ 'loginPage.logIn' | translate }}</button>
+            <button type="submit" [disabled]="formDataLogin.invalid" (ngSubmit)="login(formDataLogin)">{{ 'loginPage.logIn' | translate }}</button>
         </div>
     </form>
 
-    <form action="" (ngSubmit)="signup(formData)" #formData="ngForm">
+    <form action="" (ngSubmit)="signup(formDataSignup)" #formDataSignup="ngForm">
         <label for="nick">{{ 'loginPage.nick' | translate }}</label>
         <input type="text" name="nick" required>
-        <label for="email">{{ 'loginPage.email' | translate }}</label>
-        <input type="email" name="email" required>
+        <label for="e-mail">{{ 'loginPage.email' | translate }}</label>
+        <input type="email" name="e-mail" required>
         <label for="email">{{ 'loginPage.password' | translate }}</label>
         <input type="password" name="password" required>
-        <button type="submit" >{{ 'loginPage.signin' | translate }}</button>
+        <button type="submit" (ngSubmit)="signup(formDataSignup)">{{ 'loginPage.signin' | translate }}</button>
     </form>
 
 
@@ -36,4 +36,24 @@
         <button (click)="useLanguage('en')">EN</button>
     </div>
 
+</div> -->
+
+
+<h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
+
+<div *ngIf="!(authService.user | async)">
+  <input type="text" [(ngModel)]="email" placeholder="email">
+  <input type="password" [(ngModel)]="password" placeholder="email">
+
+  <button (click)="signup()" [disabled]="!email || !password">
+    Signup
+  </button>
+
+  <button (click)="login()" [disabled]="!email || !password">
+    Login
+  </button>
 </div>
+
+<button (click)="logout()" *ngIf="authService.user | async">
+  Logout
+</button>
