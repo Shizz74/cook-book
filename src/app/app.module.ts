@@ -14,6 +14,7 @@ import { FormsModule }   from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 
@@ -25,7 +26,8 @@ export function httpTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    RegisterComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

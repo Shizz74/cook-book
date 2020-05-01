@@ -4,16 +4,11 @@ import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.sass']
 })
-export class LoginComponent implements OnInit {
-
-  title = 'angular-9-i18n';
-  langs = ['en', 'pl'];
-  email: string;
-  password: string;
+export class RegisterComponent implements OnInit {
 
   constructor(private translateService: TranslateService, public authService: AuthService) { }
 
@@ -26,13 +21,15 @@ export class LoginComponent implements OnInit {
    }
   }
 
-  login() {
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';    
-  }
+  title = 'angular-9-i18n';
+  langs = ['en', 'pl'];
+  email: string;
+  password: string;
 
-  logout() {
-    this.authService.logout();
+
+  signup() {
+    this.authService.signup(this.email, this.password);
+    this.email = this.password = '';
   }
 
   public useLanguage(lang: string): void {

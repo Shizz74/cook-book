@@ -9,14 +9,10 @@
   <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
 
 
-  <button (click)="login()" [disabled]="!email || !password">
-    {{ 'loginPage.logIn' | translate }}
+  <button (click)="signup()" [disabled]="!email || !password">
+    {{ 'loginPage.signin' | translate }}
   </button>
 </form>
-
-<button (click)="logout()" *ngIf="authService.user | async">
-    {{ 'loginPage.logout' | translate }}
-</button>
 
 
 <div>
