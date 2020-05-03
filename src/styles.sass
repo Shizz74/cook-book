@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap')
+@import './assets/sass/reset.sass'
+
+$grey-color: #343E3D
+$yellow-color: #E3B23C
+$green-color: #4E937A
+$body-gradient: $green-color, $yellow-color
+
+@mixin gradient($direction, $body-gradient)
+  background: -webkit-linear-gradient($direction, $body-gradient)
+  background: -moz-linear-gradient($direction, $body-gradient)
+  background: -o-linear-gradient($direction, $body-gradient)
+  background: linear-gradient($direction, $body-gradient)
+
+body
+  width: 100vw
+  height: 100vh
+  @include gradient(to right, $body-gradient)
+  color: $grey-color
+  font-family: Lato 
+  overflow: hidden
+  margin: 0
+
+.flex-center-form
+  height: 100vh
+  width: 50vw
+  position: absolute
+  right: 0
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  .log-reg-form
+    height: 70%
+    width: 500px
+    background: white
+    position: relative
+    h1
+      font-size: 2.5rem
+    form
+      height: 60%
+      display: flex
+      flex-direction: column
+      justify-content: center
+      label,input,button
+        margin: 0 3rem
+  .btn-group-auth
+    width:500px
+    display: grid
+    grid-template-columns: repeat(2, 1ft)
+    grid-gap: 10px
+  .btn-lang-form
+    position: absolute
+    bottom: 0.7rem
+    width: 100%
+    text-align: center
+    button
+      font-size: 1.1rem
+      background: rgba(255, 255, 255, 0)
+      border: none

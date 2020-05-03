@@ -1,26 +1,31 @@
-<div class="btn-group-auth">
-    <button class="btn btn--form">{{ 'loginPage.login' | translate }}</button>
-    <button class="btn btn--form">{{ 'loginPage.register' | translate }}</button>
-</div>
-<form *ngIf="!(authService.user | async)">
-    <label for="email">{{ 'loginPage.email' | translate }}</label>
-  <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
-  <label for="password">{{ 'loginPage.password' | translate }}</label>
-  <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-
-
-  <button (click)="login()" [disabled]="!email || !password">
-    {{ 'loginPage.logIn' | translate }}
-  </button>
-</form>
-
-<button (click)="logout()" *ngIf="authService.user | async">
-    {{ 'loginPage.logout' | translate }}
-</button>
-
-
-<div>
-    <button (click)="useLanguage('pl')">PL</button>
-    <span> / </span>
-    <button (click)="useLanguage('en')">EN</button>
+<div class="flex-center-form">
+    <div class="btn-group-auth">
+        <button class="btn btn--form">{{ 'loginPage.login' | translate }}</button>
+        <button class="btn btn--form">{{ 'loginPage.register' | translate }}</button>
+    </div>
+    <div class="log-reg-form">
+        <h1>{{ 'loginPage.logIn' | translate }}</h1>
+        <form *ngIf="!(authService.user | async)">
+            <label for="email">{{ 'loginPage.email' | translate }}</label>
+            <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+            <label for="password">{{ 'loginPage.password' | translate }}</label>
+            <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+    
+    
+            <button (click)="login()" [disabled]="!email || !password">
+                {{ 'loginPage.logIn' | translate }}
+            </button>
+        </form>
+    
+        <button (click)="logout()" *ngIf="authService.user | async">
+            {{ 'loginPage.logout' | translate }}
+        </button>
+    
+    
+        <div class="btn-lang-form">
+            <button (click)="useLanguage('pl')">PL</button>
+            <span> / </span>
+            <button (click)="useLanguage('en')">EN</button>
+        </div>
+    </div>
 </div>
