@@ -12,7 +12,7 @@
             <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
     
     
-            <button (click)="login()" [disabled]="!email || !password">
+            <button class="btn btn--grey btn--form" (click)="login()" [disabled]="!email || !password">
                 {{ 'loginPage.logIn' | translate }}
             </button>
         </form>
