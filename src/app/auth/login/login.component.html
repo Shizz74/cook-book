@@ -25,10 +25,16 @@
     <div class="log-reg-form">
         <h1>{{ 'loginPage.login' | translate }}</h1>
         <form *ngIf="!(authService.user | async)">
-            <label for="email">{{ 'loginPage.email' | translate }}</label>
-            <input name="email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+            
+            
+            
+            <label for="email" *ngIf="emailInput.invalid && !emailInput.dirty">{{ 'loginPage.email' | translate }}</label>
+            <input name="email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" #emailInput="ngModel" email required>
+            
+            
+            
             <label for="password">{{ 'loginPage.password' | translate }}</label>
-            <input name="password" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+            <input name="password" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required minlength="8" maxlength="16">
     
     
             <button class="btn btn--grey btn--form" (click)="login()" [disabled]="!email || !password">
