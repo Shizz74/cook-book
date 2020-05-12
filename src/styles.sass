@@ -4,6 +4,7 @@
 $grey-color: #343E3D
 $yellow-color: #E3B23C
 $green-color: #4E937A
+$-light-grey-color: #585858
 $body-gradient: $green-color, $yellow-color
 
 @mixin gradient($direction, $body-gradient)
@@ -21,8 +22,10 @@ body
   overflow: hidden
   margin: 0
 
-.ng-invalid
-  color: red !important
+.ng-valid[required], .ng-valid.required
+  border-bottom-color: green !important
+.ng-invalid[required], .ng-invalid.required
+  border-bottom-color: red !important
 
 .btn
   border: none
@@ -83,9 +86,7 @@ body
         width: 100%
         height: 1.2rem
         text-align: center
-        top: 25px
-        position: relative
-        font-size: 1.2rem
+        font-size: 1rem
       input,button
         margin: 0 3rem
   .btn-group-auth
