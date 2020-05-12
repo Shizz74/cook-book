@@ -38,6 +38,9 @@
             <button class="btn btn--grey btn--form" (click)="login()" [disabled]="!email || !password">
                 {{ 'loginPage.logIn' | translate }}
             </button>
+            <div class="link link--restore">
+                <a href="">{{ 'loginPage.restorePass' | translate }}</a>
+            </div>
         </form>
     
         <button (click)="logout()" *ngIf="authService.user | async">
