@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   langs = ['en', 'pl'];
   email: string;
   password: string;
+  public loginError: boolean;
 
   constructor(private translateService: TranslateService, public authService: AuthService) { }
 
