@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
@@ -8,15 +8,21 @@ import { NgForm } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass']
 })
+
+
 export class LoginComponent implements OnInit {
 
   title = 'angular-9-i18n';
   langs = ['en', 'pl'];
   email: string;
   password: string;
-  public loginError: boolean;
+  
+  @Input() loginError: boolean;
 
+  
   constructor(private translateService: TranslateService, public authService: AuthService) { }
+
+  
 
   ngOnInit(): void {
     let browserlang = this.translateService.getBrowserLang();
@@ -38,6 +44,7 @@ export class LoginComponent implements OnInit {
 
   public useLanguage(lang: string): void {
     this.translateService.setDefaultLang(lang);
+    console.log("Błąd = " + this.loginError);
   }
 
 }
