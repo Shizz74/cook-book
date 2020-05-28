@@ -1,0 +1,13 @@
+
+
+$grey-color: #343E3D
+$yellow-color: #E3B23C
+$green-color: #4E937A
+$-light-grey-color: #bdbbbb3d
+$body-gradient: $green-color, $yellow-color
+
+@mixin gradient($direction, $body-gradient)
+  background: -webkit-linear-gradient($direction, $body-gradient)
+  background: -moz-linear-gradient($direction, $body-gradient)
+  background: -o-linear-gradient($direction, $body-gradient)
+  background: linear-gradient($direction, $body-gradient)

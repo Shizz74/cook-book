@@ -92,7 +92,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.sass",
+              "src//shared/sass/_variable.sass"
             ],
             "scripts": []
           }

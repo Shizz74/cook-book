@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   user: Observable<firebase.User>;
   loginError: number = 1;
-  public passError: boolean;
+  passError: number = 1;
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
@@ -36,28 +36,29 @@ export class AuthService {
       })
       .catch(err => {
         console.log('Something went wrong:', err);
+        const wrognLogin = document.querySelector("#wrongLoginPopup");
+        const wrongPassword = document.querySelector("#wrongPasswordPopup");
+        const loginForm = document.querySelector("#loginForm");
+        const langBtn = document.querySelector(".btn-lang-form");
         if (err.code == "auth/user-not-found") {
-          this.loginError = 2;
-          console.log("Login error: " + this.loginError);
-          // const wrognLogin = document.querySelector("#wrongLoginPopup");
-          // wrognLogin.classList.add('popupOn');
-          // wrognLogin.classList.remove("popupOff");
+          console.log(loginForm);
+          wrognLogin.classList.add('popupOn');
+          wrognLogin.classList.remove("popupOff");
+          loginForm.classList.add("popupOff");
+          langBtn.classList.add("popupOff");
           setTimeout(function () {
-            this.loginError = 1;
-            console.log("Login error2: " + this.loginError);
-            // wrognLogin.classList.remove("popupOn");
-            // wrognLogin.classList.add('popupOff');
+            wrognLogin.classList.remove("popupOn");
+            wrognLogin.classList.add('popupOff');
+            loginForm.classList.remove("popupOff");
+            langBtn.classList.remove("popupOff");
           }, 3000);
         }
         if (err.code == "auth/wrong-password") {
-          this.passError = 2;
-          // const wrongPassword = document.querySelector("#wrongPasswordPopup");
-          // wrongPassword.classList.add('popupOn');
-          // wrongPassword.classList.remove("popupOff");
+          wrongPassword.classList.add('popupOn');
+          wrongPassword.classList.remove("popupOff");
           setTimeout(function () {
-            this.passError = 1;
-            // wrongPassword.classList.remove("popupOn");
-            // wrongPassword.classList.add('popupOff');
+            wrongPassword.classList.remove("popupOn");
+            wrongPassword.classList.add('popupOff');
           }, 3000);
         }
 

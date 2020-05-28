@@ -38,17 +38,16 @@
         <button class="btn btn--form">{{ 'loginPage.login' | translate }}</button>
         <button class="btn btn--form">{{ 'loginPage.register' | translate }}</button>
     </div>
-    Bład = {{ loginError }}
     <div class="log-reg-form">
-        
+        <div id="wrongLoginPopup" class="popupOff">
+            Wrong login
+        </div>
         <div id="wrongPasswordPopup" class="popupOff">
             Wrong password
         </div>
-        <h1>{{ 'loginPage.login' | translate }}</h1>
-        <form *ngIf="!(authService.user | async)">
-            <div id="wrongLoginPopup" *ngIf="loginError">
-                Wrong login
-            </div>
+        
+        <form *ngIf="!(authService.user | async)" id="loginForm">
+            <h1>{{ 'loginPage.login' | translate }}</h1>
             <label for="email">{{ 'loginPage.email' | translate }}</label>
             <input name="email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"
                 #emailInput="ngModel" email required valid>

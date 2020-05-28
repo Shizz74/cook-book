@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   langs = ['en', 'pl'];
   email: string;
   password: string;
+
   
-  @Input() loginError: boolean;
 
   
   constructor(private translateService: TranslateService, public authService: AuthService) { }
@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
 
   public useLanguage(lang: string): void {
     this.translateService.setDefaultLang(lang);
-    console.log("Błąd = " + this.loginError);
   }
 
 }
