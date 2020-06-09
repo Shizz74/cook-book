@@ -2,10 +2,26 @@
 @import './assets/sass/reset.sass'
 @import './assets/sass/_variables.sass'
   
+
+
+
+
+
+
+
+// @include keyframes (slideFromRight)
+//   0% 
+//     transform: translateX(-1000)
   
+//   100% 
+//     transform: translateX(0)
+
+
+
+
 body
   width: 100vw
-  height: 100vh
+  height: calc(100vh-100px)
   @include gradient(to right, $body-gradient)
   color: $grey-color
   font-family: Lato 
@@ -16,6 +32,9 @@ body
   border-bottom-color: green !important
 .ng-invalid[required], .ng-invalid.required
   border-bottom-color: red !important
+
+.flex-center-form
+
 
 .btn
   border: none

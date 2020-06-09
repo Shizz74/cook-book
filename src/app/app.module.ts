@@ -15,6 +15,7 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterComponent } from './auth/register/register.component';
+import { MaterialModule } from './material/material.module';
 
 
 
@@ -42,7 +43,8 @@ export function httpTranslateLoader(http: HttpClient) {
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    MaterialModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

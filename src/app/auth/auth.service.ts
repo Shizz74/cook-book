@@ -51,15 +51,19 @@ export class AuthService {
             wrognLogin.classList.add('popupOff');
             loginForm.classList.remove("popupOff");
             langBtn.classList.remove("popupOff");
-          }, 3000);
+          }, 2500);
         }
         if (err.code == "auth/wrong-password") {
           wrongPassword.classList.add('popupOn');
           wrongPassword.classList.remove("popupOff");
+          loginForm.classList.add("popupOff");
+          langBtn.classList.add("popupOff");
           setTimeout(function () {
             wrongPassword.classList.remove("popupOn");
             wrongPassword.classList.add('popupOff');
-          }, 3000);
+            loginForm.classList.remove("popupOff");
+            langBtn.classList.remove("popupOff");
+          }, 2500);
         }
 
       });
