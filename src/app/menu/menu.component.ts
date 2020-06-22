@@ -1,5 +1,5 @@
-import { Component, OnInit, NgModule, ViewChild } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
+import { Component, OnInit, NgModule } from '@angular/core';
+
 
 @Component({
   selector: 'app-menu',
@@ -10,11 +10,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
 
 export class MenuComponent implements OnInit {
 
-  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
-
-  someMethod() {
-    this.trigger.openMenu();
-  }
   
   constructor() { }
 

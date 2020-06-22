@@ -19,7 +19,8 @@ import { MaterialModule } from './material/material.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -48,9 +49,12 @@ export function httpTranslateLoader(http: HttpClient) {
       }
     }),
     MaterialModule,
-    MatMenuModule,
+    BrowserAnimationsModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    MatMenuModule,
+    MatCardModule,
+    MatToolbarModule,
+
     
   ],
   providers: [AuthService],
