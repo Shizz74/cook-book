@@ -7,9 +7,26 @@
     background: $grey-color
     display: flex
     flex-direction: row
-    align-items: center
+    font-size: 20px
+    position: fixed
+    z-index: 2
     .logo
+        display: flex
+        align-items: center
         width: 10%
-        height: 100px
+        height: 100%
+        position: relative
+        img
+            position: relative
+            height: 90%
     .nav-list
         width: 90%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: flex-end
+        float: right !important
+    .nav-btn
+        color: $yellow-color
+        font-weight: bold
+        font-size: 20px

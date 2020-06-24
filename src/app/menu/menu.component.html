@@ -1,17 +1,18 @@
-<nav id="menu">
+<nav id="menu" *ngIf="authService.user | async">
     <div class="logo">
         <img src="assets/img/logo-small.png" alt="Coock Book Logo">
     </div>
     <div class="nav-list">
-        <button mat-button color="primary" [matMenuTriggerFor]="menu">Nick ↓</button>
+        <button mat-button class="nav-btn" [matMenuTriggerFor]="menu">Nick ↓</button>
         <mat-menu #menu="matMenu" yPosition="below" xPosition="before">
-            <button mat-menu-item>Item 1</button>
-            <button mat-menu-item>Item 2</button>
+            <button mat-menu-item>{{ 'loginPage.logIn' | translate }}</button>
+            <button mat-menu-item>{{ 'loginPage.logIn' | translate }}</button>
+            <button mat-menu-item>{{ 'loginPage.logIn' | translate }}</button>
+            <button mat-menu-item>{{ 'loginPage.logIn' | translate }}</button>
+            <button mat-menu-item>{{ 'loginPage.logIn' | translate }}</button>
+            <button mat-menu-item>{{ 'loginPage.logIn' | translate }}</button>
         </mat-menu>
-        <button mat-button color="primary">Primary</button>
-        <button mat-button color="accent">Accent</button>
-        <button mat-button color="warn">Warn</button>
-        <button mat-button disabled>Disabled</button>
-        <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+        <button mat-button class="nav-btn" (click)="useLanguage('pl')">PL</button>
+        <button mat-button class="nav-btn" (click)="useLanguage('en')">EN</button>
     </div>
 </nav>

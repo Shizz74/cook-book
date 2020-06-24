@@ -5,24 +5,9 @@
   
 
 
-
-
-
-
-
-// @include keyframes (slideFromRight)
-//   0% 
-//     transform: translateX(-1000)
-  
-//   100% 
-//     transform: translateX(0)
-
-
-
-
 body
   width: 100vw
-  height: calc(100vh-100px)
+  height: 100vh
   @include gradient(to right, $body-gradient)
   color: $grey-color
   font-family: Lato 
@@ -130,3 +115,15 @@ body
       border: none
       &:hover
         color: $yellow-color
+
+
+.mat-menu-item
+  color: $grey-color
+  font-size: 20px
+  font-weight: bold
+  text-align: center !important
+
+.mat-menu-panel
+    border-radius: 0px !important
+    background: $yellow-color !important
+
