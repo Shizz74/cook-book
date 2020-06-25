@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -32,7 +33,8 @@ export function httpTranslateLoader(http: HttpClient) {
     AppComponent,
     LoginComponent,
     MenuComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
