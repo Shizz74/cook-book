@@ -61,9 +61,6 @@
                 <a href="">{{ 'loginPage.restorePass' | translate }}</a>
             </div>
         </form>
-        <button (click)="logout()" *ngIf="authService.user | async">
-            {{ 'loginPage.logout' | translate }}
-        </button>
         <div class="btn-lang-form">
             <button (click)="useLanguage('pl')">PL</button>
             <span> / </span>

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, NgModule } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../auth/auth.service';
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,8 +16,14 @@ import { AuthService } from '../auth/auth.service';
 export class MenuComponent implements OnInit {
   title = 'angular-9-i18n';
   langs = ['en', 'pl'];
+
   
-  constructor(private translateService: TranslateService, public authService: AuthService) { }
+  constructor(
+    private translateService: TranslateService,
+    public authService: AuthService, 
+    private firebaseAuth: AngularFireAuth,
+    private router: Router,
+    ) { }
 
   ngOnInit(): void {
     let browserlang = this.translateService.getBrowserLang();
@@ -27,6 +36,14 @@ export class MenuComponent implements OnInit {
 
   public useLanguage(lang: string): void {
     this.translateService.setDefaultLang(lang);
+  }
+
+  logout() {
+    this.firebaseAuth
+      .auth
+      .signOut()
+      .then(() => this.router.navigate(['login']));
+      // localStorage.removeItem('currentUser');
   }
 
 }

@@ -39,14 +39,7 @@
       <button class="btn btn--form"><a routerLink="/register">{{ 'loginPage.register' | translate }}</a></button>
   </div>
   <div class="log-reg-form">
-      <div id="wrongLoginPopup" class="popupOff">
-          Wrong login
-      </div>
-      <div id="wrongPasswordPopup" class="popupOff">
-          Wrong password
-      </div>
-      
-      <form *ngIf="!(authService.user | async)" id="loginForm">
+          <form *ngIf="!(authService.user | async)" id="loginForm">
           <h1>{{ 'loginPage.register' | translate }}</h1>
           <label for="email">{{ 'loginPage.email' | translate }}</label>
           <input name="email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"

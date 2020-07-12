@@ -14,6 +14,7 @@ import { FormsModule }   from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { RegisterComponent } from './auth/register/register.component';
 import { MaterialModule } from './material/material.module';
 import { MatMenuModule } from '@angular/material/menu';
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -34,7 +36,8 @@ export function httpTranslateLoader(http: HttpClient) {
     LoginComponent,
     MenuComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -59,7 +62,8 @@ export function httpTranslateLoader(http: HttpClient) {
 
     
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    AngularFireAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

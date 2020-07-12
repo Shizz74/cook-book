@@ -38,9 +38,9 @@ export class LoginComponent implements OnInit {
     this.email = this.password = '';    
   }
 
-  logout() {
-    this.authService.logout();
-  }
+  // logout() {
+  //   this.authService.logout();
+  // }
 
   public useLanguage(lang: string): void {
     this.translateService.setDefaultLang(lang);
