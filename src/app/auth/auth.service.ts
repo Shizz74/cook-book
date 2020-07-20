@@ -9,18 +9,21 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
-  loginError: number = 1;
-  passError: number = 1;
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = firebaseAuth.authState;
   }
+
+  const registerForm = document.querySelector('#registerForm');
 
   signup(email: string, password: string) {
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
+        return db.collections('users').doc(value.user.uid).set({
+          nick: registerForm['nick'].value;
+        })
         console.log('Success!', value);
         this.router.navigate(['/login']);
       })
@@ -40,36 +43,6 @@ export class AuthService {
       })
       .catch(err => {
         console.log('Something went wrong:', err);
-        const wrognLogin = document.querySelector("#wrongLoginPopup");
-        const wrongPassword = document.querySelector("#wrongPasswordPopup");
-        const loginForm = document.querySelector("#loginForm");
-        const langBtn = document.querySelector(".btn-lang-form");
-        if (err.code == "auth/user-not-found") {
-          console.log(loginForm);
-          wrognLogin.classList.add('popupOn');
-          wrognLogin.classList.remove("popupOff");
-          loginForm.classList.add("popupOff");
-          langBtn.classList.add("popupOff");
-          setTimeout(function () {
-            wrognLogin.classList.remove("popupOn");
-            wrognLogin.classList.add('popupOff');
-            loginForm.classList.remove("popupOff");
-            langBtn.classList.remove("popupOff");
-          }, 2500);
-        }
-        if (err.code == "auth/wrong-password") {
-          wrongPassword.classList.add('popupOn');
-          wrongPassword.classList.remove("popupOff");
-          loginForm.classList.add("popupOff");
-          langBtn.classList.add("popupOff");
-          setTimeout(function () {
-            wrongPassword.classList.remove("popupOn");
-            wrongPassword.classList.add('popupOff');
-            loginForm.classList.remove("popupOff");
-            langBtn.classList.remove("popupOff");
-          }, 2500);
-        }
-
       });
   }
 
