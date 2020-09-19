@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
 
 import { CreateAccountService } from "../../shared/create-account.service";
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-register',
@@ -28,28 +29,17 @@ export class RegisterComponent implements OnInit {
   langs = ['en', 'pl'];
   email: string;
   password: string;
-  nick: string;
-
+  userId: string;
+  displayName: string;
+  name: string;
 
   signup() {
-    this.authService.signup(this.email, this.password);
+    this.authService.signup(this.email, this.password, this.userId, this.displayName, this.name);
     this.email = this.password = '';
-  }
-
-  createUser(){
-    this.createAccountService.form.value.createUser = this.createUser;
-    let data = this.createAccountService.form.value;
-    
-   this.createAccountService.createUser(data)
-       .then(res => {
-           /*do something here....
-           maybe clear the form or give a success message*/
-       });
   }
 
   register(){
     this.signup();
-    this.createUser();
   }
 
   public useLanguage(lang: string): void {

@@ -43,7 +43,7 @@ export class MenuComponent implements OnInit {
       .auth
       .signOut()
       .then(() => this.router.navigate(['login']));
-      // localStorage.removeItem('currentUser');
+      localStorage.removeItem('currentUser');
   }
 
 }
