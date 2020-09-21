@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  name: string;
+  
   logout() {
     throw new Error('Method not implemented.');
   }
@@ -20,33 +20,20 @@ export class AuthService {
 
   registerForm = document.querySelector('#registerForm');
 
-  signup(email: string, password: string, userId: string, name: string, displayName: string) {
+  signup(email: string, password: string, userId: string, ) {
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(email, password)
-      
       .then(value => {
-        console.log ( value.user.uid);
-        console.log('Success!', value);
         this.router.navigate(['/home']);
-
-      //   let currentUser = firebase.auth().currentUser
-      //  currentUser.updateProfile({
-      //     displayName: name,
-      //   }).then(function() {
-      //     console.log(currentUser.displayName);
-      //   }).catch(function(error) {
-      //     console.log(currentUser);
-      //   });
-
-
-        // value.user.displayName = this.name;
-        console.log(name);
         firebase.database().ref(`users/${value.user.uid}`).set({
           email: email,
-          name: displayName,
+          name: '',
+          role: "standard",
+          recipe: '',
+          items: '',
         });
-
+        console.log('Success!', value);
       })   
       .catch(err => {
         console.log('Something went wrong:', err.message);

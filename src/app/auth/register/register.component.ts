@@ -6,13 +6,13 @@ import { NgForm } from '@angular/forms';
 import { CreateAccountService } from "../../shared/create-account.service";
 import * as firebase from 'firebase';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.sass']
 })
 export class RegisterComponent implements OnInit {
-  [x: string]: any;
 
   constructor(private translateService: TranslateService, public authService: AuthService, public createAccountService:CreateAccountService) { }
 
@@ -30,11 +30,10 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
   userId: string;
-  displayName: string;
-  name: string;
+
 
   signup() {
-    this.authService.signup(this.email, this.password, this.userId, this.displayName, this.name);
+    this.authService.signup(this.email, this.password, this.userId);
     this.email = this.password = '';
   }
 
