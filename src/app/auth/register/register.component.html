@@ -49,7 +49,7 @@
           <input name="password" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
               #passwordInput="ngModel" required minlength="8" maxlength="16">
           <button class="btn btn--grey btn--form" (click)=" register()" [disabled]="!email || !password">
-              {{ 'loginPage.logIn' | translate }}
+              {{ 'loginPage.register' | translate }}
           </button>
           <div class="link link--restore">
               <a href="">{{ 'loginPage.restorePass' | translate }}</a>

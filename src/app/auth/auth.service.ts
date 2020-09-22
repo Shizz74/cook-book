@@ -45,7 +45,16 @@ export class AuthService {
       .auth
       .signInWithEmailAndPassword(email, password)
       .then(value => {
-        console.log('Nice, it worked!');
+          firebase.auth().onAuthStateChanged(function(user) {
+          let userUid = user.uid;
+          if (user) {
+            return firebase.database().ref('/users/' + userUid).once('value').then(function(snapshot) {
+              let userRole = (snapshot.val() && snapshot.val().role) || 'Anonymous';
+            });
+          } else {
+            console.log(this.err);
+          }
+        });
         localStorage.setItem('currentUser', "loggedin");
         this.router.navigate(['/home']);
       })

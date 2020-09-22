@@ -44,6 +44,7 @@ export class MenuComponent implements OnInit {
       .signOut()
       .then(() => this.router.navigate(['login']));
       localStorage.removeItem('currentUser');
+      localStorage.removeItem('role');
   }
 
 }
