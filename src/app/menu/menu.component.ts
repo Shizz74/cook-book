@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   title = 'angular-9-i18n';
   langs = ['en', 'pl'];
+  role = localStorage.getItem('role');
 
   
   constructor(
@@ -33,6 +34,7 @@ export class MenuComponent implements OnInit {
      this.translateService.setDefaultLang('en');
    }
   }
+
 
   public useLanguage(lang: string): void {
     this.translateService.setDefaultLang(lang);

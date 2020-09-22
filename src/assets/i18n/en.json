@@ -9,5 +9,12 @@
         "nick": "Nick",
         "logout":"Logout",
         "restorePass": "Restore password"
+    },
+    "menu":{
+        "homePage": "Home",
+        "profile": "Profile ↓",
+        "users": "Users",
+        "myProfile": "My profile",
+        "myRecipe": "My recipe"
     }
 }

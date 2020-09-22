@@ -9,9 +9,6 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
   
-  logout() {
-    throw new Error('Method not implemented.');
-  }
   user: Observable<firebase.User>;
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
@@ -19,6 +16,7 @@ export class AuthService {
   }
 
   registerForm = document.querySelector('#registerForm');
+
 
   signup(email: string, password: string, userId: string, ) {
     this.firebaseAuth
@@ -50,6 +48,7 @@ export class AuthService {
           if (user) {
             return firebase.database().ref('/users/' + userUid).once('value').then(function(snapshot) {
               let userRole = (snapshot.val() && snapshot.val().role) || 'Anonymous';
+              localStorage.setItem('role', userRole);
             });
           } else {
             console.log(this.err);

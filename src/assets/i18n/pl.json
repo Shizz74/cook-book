@@ -9,5 +9,12 @@
         "nick": "Pseudonim",
         "logout":"Wyloguj",
         "restorePass": "Przywróć hasło"
+    },
+    "menu":{
+        "homePage": "Główna",
+        "profile": "Profil ↓",
+        "users": "Użytkownicy",
+        "myProfile": "Mój profil",
+        "myRecipe": "Moje przepisy"
     }
 }
