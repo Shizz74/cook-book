@@ -36,6 +36,7 @@ import { HomeComponent } from './home/home.component';
 
 import { CreateAccountService } from "./shared/create-account.service";
 import { UsersListComponent } from './users/users-list/users-list.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -78,6 +79,7 @@ export function httpTranslateLoader(http: HttpClient) {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatFormFieldModule,
     ReactiveFormsModule
 
     
