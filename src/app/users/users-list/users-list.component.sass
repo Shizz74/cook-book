@@ -1,2 +1,26 @@
-table 
-  width: 100%
+@import '../../../assets/sass/_variables.sass'
+    
+#user-management
+    width: 100vw
+    height: auto
+    min-height: 100vh
+    .users-tabel
+        width: 70%
+        margin-top: 20px
+        table 
+            width: 100%
+            .mat-header-cell
+                padding-top: 20px
+                padding-bottom: 20px
+                font-size: 14px
+                color: $yellow-color
+                font-weight: bold
+                background: $grey-color
+            .mat-cell
+                padding-top: 20px
+                padding-bottom: 20px
+            .mat-row
+                &:hover
+                    background: $yellow-color
+                    color: $grey-color
+
