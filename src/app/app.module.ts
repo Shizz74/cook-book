@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { MaterialModule } from './material/material.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table'  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,7 +30,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 
 import { CreateAccountService } from "./shared/create-account.service";
-import { UsersComponent } from './users/users.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
+
 
 
 
@@ -43,12 +46,13 @@ export function httpTranslateLoader(http: HttpClient) {
     RegisterComponent,
     PageNotFoundComponent,
     HomeComponent,
-    UsersComponent
+    UsersListComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -66,6 +70,7 @@ export function httpTranslateLoader(http: HttpClient) {
     MatMenuModule,
     MatCardModule,
     MatToolbarModule,
+    MatTableModule,
     ReactiveFormsModule
 
     

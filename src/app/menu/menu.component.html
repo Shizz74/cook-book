@@ -9,7 +9,7 @@
             <button mat-menu-item routerLink="/profile">{{ 'menu.myProfile' | translate }}</button>
             <button mat-menu-item routerLink="/recipe">{{ 'menu.myRecipe' | translate }}</button>
         </mat-menu>
-        <button mat-button class="nav-btn" routerLink="/users" routerLinkActive="active-link" *ngIf="role === 'admin'">{{ 'menu.users' | translate }}</button>
+        <button mat-button class="nav-btn" routerLink="/usersList" routerLinkActive="active-link" *ngIf="role === 'admin'">{{ 'menu.users' | translate }}</button>
         <button mat-button class="nav-btn" (click)="logout()">
             {{ 'loginPage.logout' | translate }}
         </button>

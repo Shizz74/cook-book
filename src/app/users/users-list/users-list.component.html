@@ -1,19 +1,20 @@
-<div *ngIf="users">
-    <div>
-      <label>E-mail </label> {{users.mail}}
-    </div>
-    <div>
-      <label>role: </label> {{users.role}}
-    </div>
-    <div>
-      <label>name: </label> {{users.name}}
-    </div>
-   
-    <!-- <span class="button is-small btn-primary" *ngIf='customer.active' (click)='updateActive(false)'>Inactive</span>
-   
-    <span class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(true)'>Active</span>
-   
-    <span class="button is-small btn-danger" (click)='deleteCustomer()'>Delete</span>
-    -->
-    <hr/>
-  </div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="mail">
+    <th mat-header-cell *matHeaderCellDef> {{ 'labels.mail' | translate }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> {{ 'labels.name' | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> {{ 'labels.role' | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

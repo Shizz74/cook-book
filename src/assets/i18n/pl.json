@@ -16,5 +16,10 @@
         "users": "Użytkownicy",
         "myProfile": "Mój profil",
         "myRecipe": "Moje przepisy"
+    },
+    "labels": {
+        "mail": "E-mail",
+        "role": "Rola",
+        "name": "Nazwa"
     }
 }

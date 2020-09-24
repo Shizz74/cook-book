@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
-import { Users } from '../users';
+import { map } from 'rxjs/operators';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-users-list',
@@ -9,11 +10,31 @@ import { Users } from '../users';
 })
 export class UsersListComponent implements OnInit {
 
-  @Input() users: Users;
+  displayedColumns: string[] = ['mail', 'name', 'role'];
 
-  constructor(private UsersService: UsersService) { }
+  users: any;
+  dataSource: { email: string; items: number; name: string; role: string; }[];
 
-  ngOnInit(): void {
+
+  constructor(private usersService: UsersService) { }
+
+  ngOnInit() {
+    this.getUsersList();
+  }
+
+
+  getUsersList() {
+    this.usersService.getUsersList().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(users => {
+      this.users = users;
+      this.dataSource = users;
+      console.log(this.dataSource);
+    });
   }
 
 }
