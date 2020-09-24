@@ -1,19 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UsersService } from '../users.service';
 import { map } from 'rxjs/operators';
-import { DataSource } from '@angular/cdk/collections';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import  {MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.sass']
 })
-export class UsersListComponent implements OnInit {
+export class UsersListComponent implements OnInit  {
 
   displayedColumns: string[] = ['mail', 'name', 'role'];
 
   users: any;
-  dataSource: { email: string; items: number; name: string; role: string; }[];
+  dataSource;
+  // dataSource: { email: string; items: number; name: string; role: string; }[];
+  
+  
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  sort: MatSort;
 
 
   constructor(private usersService: UsersService) { }
@@ -21,7 +29,6 @@ export class UsersListComponent implements OnInit {
   ngOnInit() {
     this.getUsersList();
   }
-
 
   getUsersList() {
     this.usersService.getUsersList().snapshotChanges().pipe(
@@ -32,8 +39,10 @@ export class UsersListComponent implements OnInit {
       )
     ).subscribe(users => {
       this.users = users;
-      this.dataSource = users;
+      this.dataSource = new MatTableDataSource<Element>(this.users);
       console.log(this.dataSource);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
