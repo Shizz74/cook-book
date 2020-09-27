@@ -1,28 +1,27 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { map } from 'rxjs/operators';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import  {MatSort } from '@angular/material/sort';
+import { MatLine } from '@angular/material/core';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.sass']
 })
-export class UsersListComponent implements OnInit  {
+export class UsersListComponent implements OnInit, AfterViewInit  {
 
-  displayedColumns: string[] = ['mail', 'name', 'role'];
+  displayedColumns: string[] = ['email', 'name', 'role'];
 
   users: any;
   dataSource;
-  // dataSource: { email: string; items: number; name: string; role: string; }[];
   
   
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  sort: MatSort;
-
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
 
   constructor(private usersService: UsersService) { }
 
@@ -42,6 +41,12 @@ export class UsersListComponent implements OnInit  {
       this.dataSource = new MatTableDataSource<Element>(this.users);
       console.log(this.dataSource);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sortingDataAccessor = (data, sortHeaderId) => {
+        if(!data[sortHeaderId]) {
+          return this.sort.direction === "asc" ? '3' : '1';
+        }
+        return '2' + data[sortHeaderId].toLocaleLowerCase();
+      }
       this.dataSource.sort = this.sort;
     });
   }
@@ -50,4 +55,7 @@ export class UsersListComponent implements OnInit  {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  ngAfterViewInit() {
+    
+  }
 }

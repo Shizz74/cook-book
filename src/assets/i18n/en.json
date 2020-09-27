@@ -20,6 +20,7 @@
     "labels": {
         "mail": "E-mail",
         "role": "Role",
-        "name": "Name"
+        "name": "Name",
+        "filter": "Filter"
     }
 }

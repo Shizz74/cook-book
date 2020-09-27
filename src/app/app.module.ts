@@ -23,9 +23,10 @@ import { MaterialModule } from './material/material.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table'  
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,7 +37,6 @@ import { HomeComponent } from './home/home.component';
 
 import { CreateAccountService } from "./shared/create-account.service";
 import { UsersListComponent } from './users/users-list/users-list.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -80,6 +80,7 @@ export function httpTranslateLoader(http: HttpClient) {
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule
 
     
