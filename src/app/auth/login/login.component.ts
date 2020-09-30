@@ -20,7 +20,10 @@ export class LoginComponent implements OnInit {
   
 
   
-  constructor(private translateService: TranslateService, public authService: AuthService) { }
+  constructor(
+    private translateService: TranslateService, 
+    public authService: AuthService
+    ) { }
 
   
 

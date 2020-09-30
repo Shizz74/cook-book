@@ -47,13 +47,21 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(value => {
           firebase.auth().onAuthStateChanged(function(user) {
-          let userUid = user.uid;
           if (user) {
-            return firebase.database().ref('/users/' + userUid).once('value').then(function(snapshot) {
+            firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+              let active = (snapshot.val() && snapshot.val().active);
+              console.log(active);
               let userRole = (snapshot.val() && snapshot.val().role) || 'Anonymous';
-              localStorage.setItem('role', userRole);
+              if(active){
+                  localStorage.setItem('role', userRole);
+              }else {
+                firebase.auth().signOut()
+                .then((success) => this.router.navigate(['login']));
+                localStorage.removeItem('currentUser');
+                localStorage.removeItem('role');
+              }
             });
-          } else {
+          }else {
             console.log(this.err);
           }
         });
