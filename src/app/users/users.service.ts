@@ -18,4 +18,9 @@ export class UsersService {
    getUsersList(): AngularFireList<User> {
     return this.userRef;
    }
+
+   deactiveUser(key: string, value: any): Promise<void> {
+    return this.userRef.update(key, value);
+  }
+
   }

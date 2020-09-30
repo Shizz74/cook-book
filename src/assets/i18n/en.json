@@ -21,6 +21,9 @@
         "mail": "E-mail",
         "role": "Role",
         "name": "Name",
-        "filter": "Filter"
+        "filter": "Filter",
+        "delete": "Delete",
+        "creationDate": "Creation date",
+        "active": "Active"
     }
 }

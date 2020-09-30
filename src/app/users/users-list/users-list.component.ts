@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Input } from '@angular/core';
 import { UsersService } from '../users.service';
 import { map } from 'rxjs/operators';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import  {MatSort } from '@angular/material/sort';
 import { MatLine } from '@angular/material/core';
+import { User } from '../users'
 
 @Component({
   selector: 'app-users-list',
@@ -13,8 +14,8 @@ import { MatLine } from '@angular/material/core';
 })
 export class UsersListComponent implements OnInit, AfterViewInit  {
 
-  displayedColumns: string[] = ['email', 'name', 'role'];
-
+  displayedColumns: string[] = ['email', 'name', 'role', 'creationDate', 'active', 'delete'];
+  @Input() user: User;
   users: any;
   dataSource;
   
@@ -50,6 +51,13 @@ export class UsersListComponent implements OnInit, AfterViewInit  {
       this.dataSource.sort = this.sort;
     });
   }
+
+  deactiveUser(key, active: boolean) {
+    this.usersService
+      .deactiveUser(key, { active: active })
+      .catch(err => console.log(err));
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

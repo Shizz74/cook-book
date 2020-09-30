@@ -21,6 +21,9 @@
         "mail": "E-mail",
         "role": "Rola",
         "name": "Nazwa",
-        "filter": "Wyszukaj"
+        "filter": "Wyszukaj",
+        "delete": "Usuń",
+        "creationDate": "Data utworzenia",
+        "active": "Aktywny"
     }
 }

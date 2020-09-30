@@ -25,11 +25,14 @@ export class AuthService {
       .then(value => {
         this.router.navigate(['/home']);
         firebase.database().ref(`users/${value.user.uid}`).set({
+          key: value.user.uid,
           email: email,
-          name: '',
+          active: true,
+          name: email,
           role: "standard",
           recipe: '',
           items: '',
+          creationDate: value.user.metadata.creationTime
         });
         console.log('Success!', value);
       })   
