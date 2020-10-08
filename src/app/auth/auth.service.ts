@@ -46,9 +46,9 @@ export class AuthService {
       .auth
       .signInWithEmailAndPassword(email, password)
       .then(value => {
-          firebase.auth().onAuthStateChanged(function(user) {
+          firebase.auth().onAuthStateChanged((user) => {
           if (user) {
-            firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+            firebase.database().ref('/users/' + user.uid).once('value').then((snapshot) => {
               let active = (snapshot.val() && snapshot.val().active);
               console.log(active);
               let userRole = (snapshot.val() && snapshot.val().role) || 'Anonymous';
@@ -56,13 +56,16 @@ export class AuthService {
                   localStorage.setItem('role', userRole);
               }else {
                 firebase.auth().signOut()
-                .then((success) => this.router.navigate(['login']));
+                .then(() => {
+                  this.router.navigate(['login']);
+                });
+                console.log("wylogowanie");
                 localStorage.removeItem('currentUser');
                 localStorage.removeItem('role');
               }
             });
           }else {
-            console.log(this.err);
+
           }
         });
         localStorage.setItem('currentUser', "loggedin");
