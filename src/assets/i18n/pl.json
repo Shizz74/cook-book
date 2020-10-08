@@ -24,6 +24,7 @@
         "filter": "Wyszukaj",
         "delete": "Usuń",
         "creationDate": "Data utworzenia",
-        "active": "Aktywny"
+        "active": "Aktywny",
+        "lastLogin": "Ostatnio aktywny"
     }
 }

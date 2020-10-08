@@ -6,6 +6,7 @@ export class User {
     role: string;
     creationDate: string;
     active: boolean;
+    lastLogin: string;
 }
 
 //ToDo

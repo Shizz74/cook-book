@@ -14,7 +14,7 @@ import { User } from '../users'
 })
 export class UsersListComponent implements OnInit, AfterViewInit  {
 
-  displayedColumns: string[] = ['email', 'name', 'role', 'creationDate', 'active', 'delete'];
+  displayedColumns: string[] = ['email', 'name', 'role', 'creationDate', 'active', "lastLogin", 'delete'];
   @Input() user: User;
   users: any;
   dataSource;

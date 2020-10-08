@@ -24,6 +24,13 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
         this.router.navigate(['/home']);
+        let currentdate = new Date(); 
+        let dateTime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + "  "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
         firebase.database().ref(`users/${value.user.uid}`).set({
           key: value.user.uid,
           email: email,
@@ -32,7 +39,8 @@ export class AuthService {
           role: "standard",
           recipe: '',
           items: '',
-          creationDate: value.user.metadata.creationTime
+          creationDate: dateTime,
+          lastLogin: dateTime
         });
         console.log('Success!', value);
       })   
@@ -54,6 +62,16 @@ export class AuthService {
               let userRole = (snapshot.val() && snapshot.val().role) || 'Anonymous';
               if(active){
                   localStorage.setItem('role', userRole);
+                  let currentdate = new Date(); 
+                  let lastLogin = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + "  "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+                firebase.database().ref(`users/${value.user.uid}`).update({
+                  lastLogin: lastLogin
+                });
               }else {
                 firebase.auth().signOut()
                 .then(() => {
