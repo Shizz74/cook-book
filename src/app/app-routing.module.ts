@@ -6,6 +6,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { UsersListComponent } from '././users/users-list/users-list.component'
+import { UserRecipeComponent } from './profile/user-recipe/user-recipe.component';
 
 // const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -18,7 +19,13 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AngularFireAuthGuard], data: {
     authGuardPipe: redirectUnauthorizedToHome
   }},
-  { path: 'usersList', component: UsersListComponent, canActivate: [AngularFireAuthGuard], data: {
+  { path: 'users-ist', component: UsersListComponent, canActivate: [AngularFireAuthGuard], data: {
+    authGuardPipe: redirectUnauthorizedToHome
+  }},
+  { path: 'user-recipe', component: UserRecipeComponent, canActivate: [AngularFireAuthGuard], data: {
+    authGuardPipe: redirectUnauthorizedToHome
+  }},
+  { path: 'user-profile', component: UserRecipeComponent, canActivate: [AngularFireAuthGuard], data: {
     authGuardPipe: redirectUnauthorizedToHome
   }},
   { path: '**', component: PageNotFoundComponent },

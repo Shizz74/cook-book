@@ -37,6 +37,8 @@ import { HomeComponent } from './home/home.component';
 
 import { CreateAccountService } from "./shared/create-account.service";
 import { UsersListComponent } from './users/users-list/users-list.component';
+import { UserRecipeComponent } from './profile/user-recipe/user-recipe.component';
+import { UserProfileComponent } from './profile/user-profile/user-profile.component';
 
 
 
@@ -52,7 +54,9 @@ export function httpTranslateLoader(http: HttpClient) {
     RegisterComponent,
     PageNotFoundComponent,
     HomeComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserRecipeComponent,
+    UserProfileComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

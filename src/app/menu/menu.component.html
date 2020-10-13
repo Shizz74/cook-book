@@ -6,10 +6,10 @@
         <button mat-button class="nav-btn" routerLink="/home" routerLinkActive="active-link">{{ 'menu.homePage' | translate }}</button>
         <button mat-button class="nav-btn" [matMenuTriggerFor]="menu" routerLinkActive="active-link">{{ 'menu.profile' | translate }}</button>
         <mat-menu #menu="matMenu" yPosition="below" xPosition="before">
-            <button mat-menu-item routerLink="/profile">{{ 'menu.myProfile' | translate }}</button>
-            <button mat-menu-item routerLink="/recipe">{{ 'menu.myRecipe' | translate }}</button>
+            <button mat-menu-item routerLink="/user-profile">{{ 'menu.myProfile' | translate }}</button>
+            <button mat-menu-item routerLink="/user-recipe">{{ 'menu.myRecipe' | translate }}</button>
         </mat-menu>
-        <button mat-button class="nav-btn" routerLink="/usersList" routerLinkActive="active-link" *ngIf="role === 'admin'">{{ 'menu.users' | translate }}</button>
+        <button mat-button class="nav-btn" routerLink="/users-list" routerLinkActive="active-link" *ngIf="role === 'admin'">{{ 'menu.users' | translate }}</button>
         <button mat-button class="nav-btn" (click)="logout()">
             {{ 'loginPage.logout' | translate }}
         </button>
