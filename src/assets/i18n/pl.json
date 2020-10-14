@@ -25,6 +25,16 @@
         "delete": "Usuń",
         "creationDate": "Data utworzenia",
         "active": "Aktywny",
-        "lastLogin": "Ostatnio aktywny"
+        "lastLogin": "Ostatnio aktywny",
+        "changePassword": "Zmień hasło",
+        "deleteAccount": "Usuń konto",
+        "recipeName": "Nazwa",
+        "recipeDesc": "Opis",
+        "addNew": "Dodaj nowy przepis"
+    },
+    "buttons": {
+        "save": "Zapisz",
+        "delete": "Usuń",
+        "edit": "Edytuj"
     }
 }

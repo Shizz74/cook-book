@@ -38,14 +38,7 @@
         <button class="btn btn--form"><a routerLink="/login">{{ 'loginPage.login' | translate }}</a></button>
         <button class="btn btn--form"><a routerLink="/register">{{ 'loginPage.register' | translate }}</a></button>
     </div>
-    <div class="log-reg-form">
-        <div id="wrongLoginPopup" class="popupOff">
-            Wrong login
-        </div>
-        <div id="wrongPasswordPopup" class="popupOff">
-            Wrong password
-        </div>
-        
+    <div class="custom-form">     
         <form *ngIf="!(authService.user | async)" id="loginForm">
             <h1>{{ 'loginPage.login' | translate }}</h1>
             <label for="email">{{ 'loginPage.email' | translate }}</label>

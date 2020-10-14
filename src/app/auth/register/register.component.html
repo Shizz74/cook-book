@@ -38,7 +38,7 @@
       <button class="btn btn--form"><a routerLink="/login">{{ 'loginPage.login' | translate }}</a></button>
       <button class="btn btn--form"><a routerLink="/register">{{ 'loginPage.register' | translate }}</a></button>
   </div>
-  <div class="log-reg-form">
+  <div class="custom-form">
           <form *ngIf="!(authService.user | async)" id="registerForm"
           [formGroup]="this.createAccountService.form">
           <h1>{{ 'loginPage.register' | translate }}</h1>

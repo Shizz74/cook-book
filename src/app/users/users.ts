@@ -8,8 +8,3 @@ export class User {
     active: boolean;
     lastLogin: string;
 }
-
-//ToDo
-//Dodać wartości:
-//-Data założenia konta
-//-aktywny?

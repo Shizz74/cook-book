@@ -25,6 +25,16 @@
         "delete": "Delete",
         "creationDate": "Creation date",
         "active": "Active",
-        "lastLogin": "Last login"
+        "lastLogin": "Last login",
+        "changePassword": "Change you password",
+        "deleteAccount": "Delete account",
+        "recipeName": "Name",
+        "recipeDesc": "Description",
+        "addNew": "Add new recipe"
+    },
+    "buttons": {
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit"
     }
 }
