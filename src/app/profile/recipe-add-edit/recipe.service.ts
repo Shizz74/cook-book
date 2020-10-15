@@ -11,7 +11,7 @@ export class RecipeService {
 
   userId = firebase.auth().currentUser.uid;
 
-  private dbPath = '/users/' + this.userId + 'recipe';
+  private dbPath = '/users/' + this.userId + '/recipe';
 
   recipeRef: AngularFireList<Recipe> = null;
 
@@ -25,12 +25,12 @@ export class RecipeService {
   })
 
 
-  saveRecipe(userId, name, desc) {
-    firebase.database().ref('/recipe').set({
-      name: name,
-      desc: desc
-    });
-  }
+  // saveRecipe(userId, name, desc) {
+  //   firebase.database().ref('/recipe').set({
+  //     name: name,
+  //     desc: desc
+  //   });
+  // }
 
 
 
