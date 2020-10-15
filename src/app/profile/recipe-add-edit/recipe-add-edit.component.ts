@@ -1,7 +1,9 @@
 import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 
-import { RecipeService } from '../recipe-add-edit/recipe.service'
+import { Recipe } from './recipe';
+import { RecipeService } from './recipe.service';
+
 
 @Component({
   selector: 'app-recipe-add-edit',
@@ -9,6 +11,9 @@ import { RecipeService } from '../recipe-add-edit/recipe.service'
   styleUrls: ['./recipe-add-edit.component.sass']
 })
 export class RecipeAddEditComponent implements OnInit {
+
+  recipe: Recipe = new Recipe();
+  submitted = false;
 
   constructor(
     public recipeService:RecipeService
@@ -21,9 +26,27 @@ export class RecipeAddEditComponent implements OnInit {
   desc: string;
 
 
-  saveNewRecipe(){
+  newRecipe(): void {
+    this.submitted = false;
+    this.recipe = new Recipe();
+  }
+
+  saveRecipe(){
+
+  }
+
+
+  save(){
+    this.recipeService.createRecipe(this.recipe);
+    this.recipe = new Recipe();
     console.log("przycisk działa");
     //ToDo
     //Save recipe.
+  }
+
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();
   }
 }

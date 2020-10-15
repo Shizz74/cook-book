@@ -1,26 +1,26 @@
 <div class="app-container form1">
      
     <div class="custom-form custom-form--wider">
-        <form id="manage-recipe" [formGroup]="this.recipeService.form">
+        <form id="manage-recipe" (ngSubmit)="onSubmit()" [formGroup]="this.recipeService.form">
 
 
             <h1>{{  'labels.addNew' | translate }}</h1>
     
             <label for="name">{{ 'labels.recipeName' | translate }}</label>
-            <input name="name" type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"
+            <input name="name" type="text" [(ngModel)]="recipe.name" [ngModelOptions]="{standalone: true}"
                 #nameInput="ngModel" required valid>
     
     
     
     
             <label for="desc">{{ 'labels.recipeDesc' | translate }}</label>
-            <textarea name="desc" type="text" [(ngModel)]="desc" [ngModelOptions]="{standalone: true}"
+            <textarea name="desc" type="text" [(ngModel)]="recipe.desc" [ngModelOptions]="{standalone: true}"
                 #descInput="ngModel" required></textarea>
     
     
     
     
-            <button class="btn btn--grey btn--standard" (click)="saveNewRecipe()">
+            <button class="btn btn--grey btn--standard" (click)="saveRecipe()">
                 {{ 'buttons.save' | translate }}
             </button>
     
